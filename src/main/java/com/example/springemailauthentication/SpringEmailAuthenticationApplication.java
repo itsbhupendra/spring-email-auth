@@ -10,4 +10,6 @@ public class SpringEmailAuthenticationApplication {
         SpringApplication.run(SpringEmailAuthenticationApplication.class, args);
     }
 
+    //merged git status
+
 }
