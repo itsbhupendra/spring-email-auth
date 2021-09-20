@@ -1,12 +1,12 @@
 package com.example.springemailauthentication.registration;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.*;
 
 @Data
+@Getter
+@Setter
 @AllArgsConstructor
+
 @EqualsAndHashCode
 @ToString
 public class RegistrationRequest {

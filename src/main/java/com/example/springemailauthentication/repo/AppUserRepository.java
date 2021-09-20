@@ -2,14 +2,23 @@ package com.example.springemailauthentication.repo;
 
 import com.example.springemailauthentication.appuser.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import javax.transaction.Transactional;
+//import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
-@Transactional
+@Transactional(readOnly=true)
 @Repository
 public interface AppUserRepository extends JpaRepository<AppUser,Long> {
 
     Optional<AppUser> findByEmail(String email);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE AppUser a "+
+    "SET a.enabled=TRUE WHERE a.email=?1")
+    int enableAppUser(String email);
 }
